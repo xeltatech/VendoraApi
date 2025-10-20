@@ -36,7 +36,7 @@ B2B Digital Catalog Platform Backend - Multi-factory wholesale ordering system f
 
 1. **Install dependencies**:
    ```bash
-   yarn install
+   yarn
    ```
 
 2. **Set up environment**:
