@@ -1,0 +1,318 @@
+// Vendora API - Prisma Schema
+// B2B Digital Catalog Platform
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// ==================== ORGANIZATIONS & USERS ====================
+
+model Organization {
+  id        String   @id @default(uuid())
+  name      String
+  code      String   @unique // e.g., "ACME001"
+  email     String?
+  phone     String?
+  address   String?
+  isActive  Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  users      User[]
+  priceLists PriceList[]
+  orders     Order[]
+
+  @@map("organizations")
+}
+
+enum UserRole {
+  ADMIN
+  SELLER
+  FACTORY_VIEWER
+}
+
+model User {
+  id             String   @id @default(uuid())
+  email          String   @unique
+  password       String // hashed with bcrypt
+  firstName      String
+  lastName       String
+  role           UserRole @default(SELLER)
+  isActive       Boolean  @default(true)
+  refreshToken   String? // for JWT refresh token rotation
+  lastLoginAt    DateTime?
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  organizationId String?
+  organization   Organization? @relation(fields: [organizationId], references: [id], onDelete: SetNull)
+
+  factoryId String?
+  factory   Factory? @relation(fields: [factoryId], references: [id], onDelete: SetNull)
+
+  orders     Order[]
+  auditLogs  AuditLog[]
+
+  @@index([email])
+  @@index([organizationId])
+  @@index([factoryId])
+  @@map("users")
+}
+
+// ==================== FACTORIES ====================
+
+model Factory {
+  id           String   @id @default(uuid())
+  name         String
+  code         String   @unique // e.g., "FAC-TEXTILES"
+  contactEmail String // receives order PDFs
+  contactPhone String?
+  address      String?
+  isActive     Boolean  @default(true)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  products  Product[]
+  orders    Order[]
+  users     User[] // factory_viewer users
+  emailJobs EmailJob[]
+
+  @@map("factories")
+}
+
+// ==================== PRODUCTS & VARIANTS ====================
+
+model Product {
+  id          String   @id @default(uuid())
+  sku         String   @unique
+  name        String
+  description String?
+  category    String? // e.g., "Textiles", "Electronics"
+  tags        String[] // for filtering
+  imageUrl    String?
+  isActive    Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  factoryId String
+  factory   Factory @relation(fields: [factoryId], references: [id], onDelete: Cascade)
+
+  variants ProductVariant[]
+
+  @@index([factoryId])
+  @@index([category])
+  @@index([sku])
+  @@map("products")
+}
+
+model ProductVariant {
+  id         String  @id @default(uuid())
+  sku        String  @unique
+  name       String // e.g., "Red - Large"
+  color      String?
+  size       String?
+  attributes Json? // JSONB for flexible attributes: { "material": "cotton", "weight": "200g" }
+  imageUrl   String?
+  stockCode  String? // internal code used by factory
+  isActive   Boolean @default(true)
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  productId String
+  product   Product @relation(fields: [productId], references: [id], onDelete: Cascade)
+
+  prices     Price[]
+  orderItems OrderItem[]
+
+  @@index([productId])
+  @@index([sku])
+  @@map("product_variants")
+}
+
+// ==================== PRICING ====================
+
+model PriceList {
+  id          String   @id @default(uuid())
+  name        String // e.g., "Wholesale 2024 Q1"
+  code        String   @unique
+  description String?
+  validFrom   DateTime
+  validTo     DateTime?
+  isActive    Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  organizationId String?
+  organization   Organization? @relation(fields: [organizationId], references: [id], onDelete: SetNull)
+
+  prices Price[]
+  orders Order[]
+
+  @@index([organizationId])
+  @@index([code])
+  @@map("price_lists")
+}
+
+model Price {
+  id        String   @id @default(uuid())
+  amount    Decimal  @db.Decimal(10, 2) // price in cents/smallest unit
+  currency  String   @default("USD")
+  minQty    Int      @default(1) // minimum order quantity for this price
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  priceListId String
+  priceList   PriceList @relation(fields: [priceListId], references: [id], onDelete: Cascade)
+
+  variantId String
+  variant   ProductVariant @relation(fields: [variantId], references: [id], onDelete: Cascade)
+
+  @@unique([priceListId, variantId]) // one price per variant per price list
+  @@index([priceListId])
+  @@index([variantId])
+  @@map("prices")
+}
+
+// ==================== ORDERS ====================
+
+enum OrderStatus {
+  DRAFT
+  SUBMITTED
+  EMAILED
+  CONFIRMED
+  CANCELLED
+}
+
+model Order {
+  id              String      @id @default(uuid())
+  orderNumber     String      @unique // auto-generated, e.g., "ORD-2024-00001"
+  status          OrderStatus @default(DRAFT)
+  notes           String?
+  internalNotes   String? // admin only
+  totalAmount     Decimal     @db.Decimal(10, 2)
+  currency        String      @default("USD")
+  pdfUrl          String? // signed URL to generated PDF
+  submittedAt     DateTime?
+  emailedAt       DateTime?
+  createdAt       DateTime    @default(now())
+  updatedAt       DateTime    @updatedAt
+
+  organizationId String
+  organization   Organization @relation(fields: [organizationId], references: [id], onDelete: Restrict)
+
+  userId String
+  user   User   @relation(fields: [userId], references: [id], onDelete: Restrict)
+
+  factoryId String
+  factory   Factory @relation(fields: [factoryId], references: [id], onDelete: Restrict)
+
+  priceListId String?
+  priceList   PriceList? @relation(fields: [priceListId], references: [id], onDelete: SetNull)
+
+  items      OrderItem[]
+  emailJobs  EmailJob[]
+  auditLogs  AuditLog[]
+
+  @@index([organizationId])
+  @@index([userId])
+  @@index([factoryId])
+  @@index([status])
+  @@index([orderNumber])
+  @@index([createdAt])
+  @@map("orders")
+}
+
+model OrderItem {
+  id        String   @id @default(uuid())
+  quantity  Int
+  unitPrice Decimal  @db.Decimal(10, 2)
+  totalPrice Decimal @db.Decimal(10, 2)
+  notes     String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  orderId String
+  order   Order  @relation(fields: [orderId], references: [id], onDelete: Cascade)
+
+  variantId String
+  variant   ProductVariant @relation(fields: [variantId], references: [id], onDelete: Restrict)
+
+  @@index([orderId])
+  @@index([variantId])
+  @@map("order_items")
+}
+
+// ==================== EMAIL & JOBS ====================
+
+enum EmailJobStatus {
+  PENDING
+  PROCESSING
+  SENT
+  FAILED
+}
+
+model EmailJob {
+  id          String         @id @default(uuid())
+  status      EmailJobStatus @default(PENDING)
+  to          String[] // email recipients
+  subject     String
+  body        String?
+  attachments Json? // { "pdf": "url", "filename": "order.pdf" }
+  error       String? // error message if failed
+  attempts    Int            @default(0)
+  maxAttempts Int            @default(3)
+  sentAt      DateTime?
+  createdAt   DateTime       @default(now())
+  updatedAt   DateTime       @updatedAt
+
+  orderId String?
+  order   Order?   @relation(fields: [orderId], references: [id], onDelete: SetNull)
+
+  factoryId String?
+  factory   Factory? @relation(fields: [factoryId], references: [id], onDelete: SetNull)
+
+  @@index([status])
+  @@index([orderId])
+  @@index([createdAt])
+  @@map("email_jobs")
+}
+
+// ==================== AUDIT LOGS ====================
+
+enum AuditAction {
+  CREATE
+  UPDATE
+  DELETE
+  LOGIN
+  LOGOUT
+  SUBMIT_ORDER
+  EMAIL_SENT
+  PDF_GENERATED
+}
+
+model AuditLog {
+  id          String      @id @default(uuid())
+  action      AuditAction
+  entityType  String // e.g., "Order", "User", "Product"
+  entityId    String?
+  changes     Json? // before/after snapshot
+  ipAddress   String?
+  userAgent   String?
+  createdAt   DateTime    @default(now())
+
+  userId String?
+  user   User?   @relation(fields: [userId], references: [id], onDelete: SetNull)
+
+  orderId String?
+  order   Order?  @relation(fields: [orderId], references: [id], onDelete: SetNull)
+
+  @@index([userId])
+  @@index([entityType, entityId])
+  @@index([createdAt])
+  @@map("audit_logs")
+}
