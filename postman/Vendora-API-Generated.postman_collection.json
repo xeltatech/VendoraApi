@@ -1,7 +1,7 @@
 {
   "item": [
     {
-      "id": "d03926d6-1862-42ee-8c0f-adfd83d31fa8",
+      "id": "2aae4eb6-5898-4574-bdd3-4cfb9d322c2c",
       "name": "auth",
       "description": {
         "content": "Authentication endpoints",
@@ -9,7 +9,7 @@
       },
       "item": [
         {
-          "id": "4194776b-2c3a-4e23-8fd5-d23c3b0054b6",
+          "id": "9b8979a3-c063-4365-a461-43a33691204a",
           "name": "User login",
           "request": {
             "name": "User login",
@@ -51,7 +51,7 @@
           },
           "response": [
             {
-              "id": "1b1ec8b8-b099-465a-ac5a-47625cd6eb6b",
+              "id": "23ba6ce5-df74-493f-8b25-73297bfecd00",
               "name": "Login successful",
               "originalRequest": {
                 "url": {
@@ -97,7 +97,7 @@
               "_postman_previewlanguage": "json"
             },
             {
-              "id": "5fc4d6e8-0745-4728-8402-edc2fc44c3f9",
+              "id": "be495988-5719-4608-b2bf-bc524ef05869",
               "name": "Invalid credentials",
               "originalRequest": {
                 "url": {
@@ -143,7 +143,7 @@
           }
         },
         {
-          "id": "6746b90e-b940-4a88-866c-e3cb582a8ebb",
+          "id": "a2de8e4c-54ef-46e2-94bf-a06372253638",
           "name": "Refresh access token",
           "request": {
             "name": "Refresh access token",
@@ -181,7 +181,7 @@
           },
           "response": [
             {
-              "id": "10e849ad-503d-437d-8d1f-27582824e58e",
+              "id": "dd54bf97-978b-42fd-81ff-9aea2104483f",
               "name": "Token refreshed successfully",
               "originalRequest": {
                 "url": {
@@ -221,7 +221,7 @@
               "_postman_previewlanguage": "text"
             },
             {
-              "id": "782f305b-2db4-46dd-97ed-e93f9dbd809a",
+              "id": "83d08e3f-0b8d-49e7-a922-04f308231829",
               "name": "Invalid refresh token",
               "originalRequest": {
                 "url": {
@@ -267,7 +267,7 @@
           }
         },
         {
-          "id": "5131fb18-2d01-4e74-89e8-c5f4f08cd124",
+          "id": "5f8ec9ef-add0-4f1a-9c9a-7945ee34fc98",
           "name": "User logout",
           "request": {
             "name": "User logout",
@@ -298,7 +298,7 @@
           },
           "response": [
             {
-              "id": "b6b19126-5bde-448d-ac45-55766693ff4b",
+              "id": "36364f59-b17e-4dca-bdb1-fb110f78b540",
               "name": "Logout successful",
               "originalRequest": {
                 "url": {
@@ -336,7 +336,7 @@
           }
         },
         {
-          "id": "8401bd8c-b622-4917-a155-454462ab104b",
+          "id": "324806a5-ba3e-40a7-9caa-d794ebdd5818",
           "name": "Get current user",
           "request": {
             "name": "Get current user",
@@ -367,7 +367,7 @@
           },
           "response": [
             {
-              "id": "eab50a53-85f6-47a6-8e52-88c16f517686",
+              "id": "7f950ede-94ab-4c3f-a14b-41753d05f80a",
               "name": "Current user information",
               "originalRequest": {
                 "url": {
@@ -408,7 +408,7 @@
       "event": []
     },
     {
-      "id": "e4c02742-02d1-4493-8b52-93b08722def4",
+      "id": "bdd1f522-7cae-4d25-8661-51322abacdd2",
       "name": "users",
       "description": {
         "content": "User management",
@@ -416,7 +416,7 @@
       },
       "item": [
         {
-          "id": "bf76b354-2898-40b9-b6b2-6cfac86e20b1",
+          "id": "489ea7c3-8c5a-4b80-9f6d-3184796fe288",
           "name": "Create a new user",
           "request": {
             "name": "Create a new user",
@@ -461,7 +461,7 @@
           },
           "response": [
             {
-              "id": "04044896-9eb7-42d8-8db6-2bc17dd4aed1",
+              "id": "21ccfb23-fa02-4449-8625-b485a6fdaefa",
               "name": "User created",
               "originalRequest": {
                 "url": {
@@ -500,7 +500,7 @@
               "_postman_previewlanguage": "text"
             },
             {
-              "id": "566f5c0d-1d3b-41f1-a0ec-7caff91377e2",
+              "id": "c03fd041-6dde-4b72-90be-d5fd468d5eab",
               "name": "Forbidden",
               "originalRequest": {
                 "url": {
@@ -545,7 +545,7 @@
           }
         },
         {
-          "id": "edf326da-83dd-4131-82ab-c7b5ccf9d5c7",
+          "id": "3d894fe4-6811-4aa2-bee0-d24749f1ff39",
           "name": "Get all users",
           "request": {
             "name": "Get all users",
@@ -588,7 +588,7 @@
           },
           "response": [
             {
-              "id": "482991af-e9d9-4581-a2c1-4c19981d995d",
+              "id": "c065ca37-dfe8-4adb-8045-1d8202f5f235",
               "name": "Users retrieved",
               "originalRequest": {
                 "url": {
@@ -634,7 +634,7 @@
           }
         },
         {
-          "id": "9087924f-a773-499b-9e65-25bf1e5ee94c",
+          "id": "a1ec8721-4099-491f-87c6-ec304cc3caab",
           "name": "Get user by ID",
           "request": {
             "name": "Get user by ID",
@@ -673,7 +673,7 @@
           },
           "response": [
             {
-              "id": "ce3ceb54-ded9-48ab-8be9-6daf945a5011",
+              "id": "5a429c69-d893-401a-abe8-7e98c0fbf9e2",
               "name": "User retrieved",
               "originalRequest": {
                 "url": {
@@ -713,7 +713,7 @@
               "_postman_previewlanguage": "text"
             },
             {
-              "id": "e70948a6-f2cc-4291-811f-1736ee7b8454",
+              "id": "390d0262-261c-4f32-b235-af3c84ca8f10",
               "name": "User not found",
               "originalRequest": {
                 "url": {
@@ -759,7 +759,7 @@
           }
         },
         {
-          "id": "c44320f5-97a0-4973-8d46-243e342a3a88",
+          "id": "6f91a696-4b1d-41ca-93cf-d41eabe7fc02",
           "name": "Update user",
           "request": {
             "name": "Update user",
@@ -813,7 +813,7 @@
           },
           "response": [
             {
-              "id": "3209f7a6-dc30-4913-8e17-4471978b3a5a",
+              "id": "0a5df994-f421-4acb-8768-371f765a0ba1",
               "name": "User updated",
               "originalRequest": {
                 "url": {
@@ -861,7 +861,7 @@
               "_postman_previewlanguage": "text"
             },
             {
-              "id": "9157dde4-59e9-4f7f-b01e-6e1b1ca616b2",
+              "id": "963d35c0-d0c8-4b35-a268-9c5f6a238969",
               "name": "Forbidden",
               "originalRequest": {
                 "url": {
@@ -915,7 +915,7 @@
           }
         },
         {
-          "id": "83960273-f628-4b9a-ae6a-2d62b6a67f7e",
+          "id": "a55aa1a8-0b7d-406c-a747-feea79ceed07",
           "name": "Delete user",
           "request": {
             "name": "Delete user",
@@ -954,7 +954,7 @@
           },
           "response": [
             {
-              "id": "6278c07d-1f9b-4eb8-96eb-2e6ba02c6576",
+              "id": "d9d98b04-c1c6-4916-8101-0603910352ae",
               "name": "User deleted",
               "originalRequest": {
                 "url": {
@@ -994,7 +994,7 @@
               "_postman_previewlanguage": "text"
             },
             {
-              "id": "89b5d501-0318-4684-bf19-70306476dac1",
+              "id": "1758c2c7-30f9-402b-8fe3-ea040020e683",
               "name": "Forbidden",
               "originalRequest": {
                 "url": {
@@ -1043,7 +1043,7 @@
       "event": []
     },
     {
-      "id": "7d5da035-fd43-43e0-aa52-3d9cf1213334",
+      "id": "ad43c4e0-1e4b-49fd-9c1e-4016a23c488a",
       "name": "organizations",
       "description": {
         "content": "Organization management",
@@ -1051,7 +1051,7 @@
       },
       "item": [
         {
-          "id": "6dfe9723-6637-45ba-9826-f664bb708a03",
+          "id": "481cf8f6-99d8-400d-9b33-f8b5c342d615",
           "name": "Organizations Controller create",
           "request": {
             "name": "Organizations Controller create",
@@ -1081,7 +1081,7 @@
           },
           "response": [
             {
-              "id": "bbb67e5a-3bef-464f-9ca3-5bd4766d5348",
+              "id": "4c8a264d-4b99-4a34-a4ff-0bdd0c062b2a",
               "originalRequest": {
                 "url": {
                   "path": [
@@ -1117,7 +1117,7 @@
           }
         },
         {
-          "id": "d7f0ee5c-a0ee-4bf9-bd2d-5ae8362fc9d1",
+          "id": "a1ee9446-3822-40f2-a450-036d19fd2944",
           "name": "Organizations Controller find All",
           "request": {
             "name": "Organizations Controller find All",
@@ -1147,7 +1147,7 @@
           },
           "response": [
             {
-              "id": "70c8ffe8-ce7d-4fd4-93d8-0e5981299c3e",
+              "id": "82c838ba-a168-4ad0-839b-c2817787b9dc",
               "originalRequest": {
                 "url": {
                   "path": [
@@ -1183,7 +1183,7 @@
           }
         },
         {
-          "id": "0fd217e5-9fae-4099-a6a6-2e3db34da0dc",
+          "id": "b444d9ad-4af2-4bf4-92de-734bafed24b3",
           "name": "Organizations Controller find One",
           "request": {
             "name": "Organizations Controller find One",
@@ -1222,7 +1222,7 @@
           },
           "response": [
             {
-              "id": "8c8cfe11-36fa-40b7-a88a-69963f92f482",
+              "id": "1e2dfc2d-1b0a-49dc-a08e-b98144822e99",
               "originalRequest": {
                 "url": {
                   "path": [
@@ -1267,7 +1267,7 @@
           }
         },
         {
-          "id": "aff9befc-84ae-406b-997f-c92db79a1329",
+          "id": "41e66701-bb64-4f65-a5c4-5b64853d37f0",
           "name": "Organizations Controller update",
           "request": {
             "name": "Organizations Controller update",
@@ -1306,7 +1306,7 @@
           },
           "response": [
             {
-              "id": "14d85ba5-54af-4c69-9e42-c4c33a66ccf8",
+              "id": "de2e8007-2c6f-4da3-956e-b4ea4db0e0fe",
               "originalRequest": {
                 "url": {
                   "path": [
@@ -1351,7 +1351,7 @@
           }
         },
         {
-          "id": "ed9280a3-9600-4647-a3ab-c4e7355fffc3",
+          "id": "98d2dba4-3f21-40ca-8f7a-58f340691e83",
           "name": "Organizations Controller remove",
           "request": {
             "name": "Organizations Controller remove",
@@ -1390,7 +1390,7 @@
           },
           "response": [
             {
-              "id": "ba920fd7-2365-47a9-aac4-ef53c94b1965",
+              "id": "8f6c9eac-3232-4ef2-a165-0fd68759b3ec",
               "originalRequest": {
                 "url": {
                   "path": [
@@ -1438,7 +1438,7 @@
       "event": []
     },
     {
-      "id": "042e1e85-aeea-44c6-af4b-22260be5f3b2",
+      "id": "f92fb692-9be1-45e6-ae0a-f20275d7ea5b",
       "name": "factories",
       "description": {
         "content": "Factory management",
@@ -1446,7 +1446,7 @@
       },
       "item": [
         {
-          "id": "13f2a19f-dc99-47e4-a9a1-62d9550a0193",
+          "id": "c79e3bce-f417-4888-b3c9-68a5905ccdef",
           "name": "Factories Controller create",
           "request": {
             "name": "Factories Controller create",
@@ -1476,7 +1476,7 @@
           },
           "response": [
             {
-              "id": "d3a82abc-9069-4117-a54e-ad9f49db8a01",
+              "id": "001db52d-c3ab-424e-9970-ce6e11ea9609",
               "originalRequest": {
                 "url": {
                   "path": [
@@ -1512,7 +1512,7 @@
           }
         },
         {
-          "id": "4eeacece-ea29-4724-8ba2-7100643b4b92",
+          "id": "61076a69-58bb-492d-a825-5ee97e5bf738",
           "name": "Factories Controller find All",
           "request": {
             "name": "Factories Controller find All",
@@ -1542,7 +1542,7 @@
           },
           "response": [
             {
-              "id": "4271bf0d-4439-444c-9a36-c58eff2bbbaf",
+              "id": "3bf26988-7d31-4b44-aa4b-90c5ea25a1fc",
               "originalRequest": {
                 "url": {
                   "path": [
@@ -1578,7 +1578,7 @@
           }
         },
         {
-          "id": "a8eb8c18-320a-4178-8efb-9d8251be2e4f",
+          "id": "ebeea567-0eb2-4494-8c11-0b02c4731ba0",
           "name": "Factories Controller find One",
           "request": {
             "name": "Factories Controller find One",
@@ -1617,7 +1617,7 @@
           },
           "response": [
             {
-              "id": "6da01448-7293-44a4-b653-fe162af837ac",
+              "id": "09c764b6-8dc9-4b21-b2bf-c4038302d3f1",
               "originalRequest": {
                 "url": {
                   "path": [
@@ -1662,7 +1662,7 @@
           }
         },
         {
-          "id": "190ecc27-2991-4f38-9603-e80665b885d6",
+          "id": "bfe822f1-a269-4acc-ad67-70fd2dc77f74",
           "name": "Factories Controller update",
           "request": {
             "name": "Factories Controller update",
@@ -1701,7 +1701,7 @@
           },
           "response": [
             {
-              "id": "f7ba2ef0-76e6-4dee-830e-9f84e4a72f2f",
+              "id": "3e967265-e466-4bb8-b786-65af45a1b44d",
               "originalRequest": {
                 "url": {
                   "path": [
@@ -1746,7 +1746,7 @@
           }
         },
         {
-          "id": "749081f7-c5f2-42b7-a1bf-a1b215fc6f51",
+          "id": "be698896-8395-4e27-bbb7-b25272613cd1",
           "name": "Factories Controller remove",
           "request": {
             "name": "Factories Controller remove",
@@ -1785,7 +1785,7 @@
           },
           "response": [
             {
-              "id": "cfd88fd1-5ed3-46cb-b4e5-dc545004804e",
+              "id": "d33fcd3f-7938-4267-a8cd-7c8d7d1bc44b",
               "originalRequest": {
                 "url": {
                   "path": [
@@ -1833,7 +1833,7 @@
       "event": []
     },
     {
-      "id": "c1680ec7-66e0-456e-accd-dbb068b3021e",
+      "id": "49185fb6-2c7e-4d12-abd0-7219865df75f",
       "name": "products",
       "description": {
         "content": "Product catalog",
@@ -1841,7 +1841,7 @@
       },
       "item": [
         {
-          "id": "f044314f-182a-4293-8e34-d2b9c509e97c",
+          "id": "fbfb018b-d10e-48c4-976f-828b2c2c36be",
           "name": "Create a new product",
           "request": {
             "name": "Create a new product",
@@ -1886,7 +1886,7 @@
           },
           "response": [
             {
-              "id": "140da3a9-a10b-4d75-acec-0b719c4dcbf2",
+              "id": "0b26f69a-b1cf-441d-94e5-0ca7e11fe4d3",
               "name": "Product created successfully",
               "originalRequest": {
                 "url": {
@@ -1925,7 +1925,7 @@
               "_postman_previewlanguage": "text"
             },
             {
-              "id": "bb2b4a26-d8a0-4c41-b64d-18f69da3cb7a",
+              "id": "4d8552b0-91a2-4083-86e9-cf493a8bf680",
               "name": "Unauthorized",
               "originalRequest": {
                 "url": {
@@ -1964,7 +1964,7 @@
               "_postman_previewlanguage": "text"
             },
             {
-              "id": "39d8f8dd-d408-49f7-85f6-6a81ad8434b0",
+              "id": "a43e1e7f-04ec-41a6-9f2b-b19f21b5dbbb",
               "name": "Forbidden - Admin only",
               "originalRequest": {
                 "url": {
@@ -2009,7 +2009,7 @@
           }
         },
         {
-          "id": "fbb3ed48-9544-4927-a3ae-1e1ae8875c02",
+          "id": "b38a3db1-d1a7-4beb-890c-f65e1d31f413",
           "name": "Get all products",
           "request": {
             "name": "Get all products",
@@ -2055,7 +2055,7 @@
           },
           "response": [
             {
-              "id": "9f91f3f7-e68b-4fd0-a5a9-94b1bc5dcb2f",
+              "id": "65d089e4-5a0c-4807-abc5-65c09e503215",
               "name": "Products retrieved successfully",
               "originalRequest": {
                 "url": {
@@ -2105,7 +2105,7 @@
           }
         },
         {
-          "id": "8c348966-8d5f-484e-81ba-8faf022a61d9",
+          "id": "2386c27b-b8a0-4569-a997-19fc666bef7c",
           "name": "Get a product by ID",
           "request": {
             "name": "Get a product by ID",
@@ -2144,7 +2144,7 @@
           },
           "response": [
             {
-              "id": "6227d006-492a-47d7-b1cb-3feae0caeb33",
+              "id": "da23802e-1d57-4592-b9fb-adc4eb55f4dc",
               "name": "Product retrieved successfully",
               "originalRequest": {
                 "url": {
@@ -2184,7 +2184,7 @@
               "_postman_previewlanguage": "text"
             },
             {
-              "id": "91451e83-7a1b-49ef-873c-03d016aaff2d",
+              "id": "e5738e11-84b5-449f-abd0-b6be5b9926d3",
               "name": "Product not found",
               "originalRequest": {
                 "url": {
@@ -2230,7 +2230,7 @@
           }
         },
         {
-          "id": "b77a169c-e8ef-4c2e-9213-b9e39d63ae81",
+          "id": "25b1ebc7-7257-41b3-a7fb-8bc785965d0b",
           "name": "Update a product",
           "request": {
             "name": "Update a product",
@@ -2284,7 +2284,7 @@
           },
           "response": [
             {
-              "id": "29e3afbe-8840-4387-aaf0-3041bea07886",
+              "id": "e48c1b4f-3e1e-4a70-bd07-4b1bdbc63068",
               "name": "Product updated successfully",
               "originalRequest": {
                 "url": {
@@ -2332,7 +2332,7 @@
               "_postman_previewlanguage": "text"
             },
             {
-              "id": "d9320dee-d041-4a9b-a784-8ccbb0a15d33",
+              "id": "499a8c3f-816a-4841-b878-3e8e2f3c502a",
               "name": "Forbidden - Admin only",
               "originalRequest": {
                 "url": {
@@ -2380,7 +2380,7 @@
               "_postman_previewlanguage": "text"
             },
             {
-              "id": "df3a1c22-bd33-452f-9360-2adf27dfa559",
+              "id": "beb0def5-4179-4bdf-a540-f9c74a329f5a",
               "name": "Product not found",
               "originalRequest": {
                 "url": {
@@ -2434,7 +2434,7 @@
           }
         },
         {
-          "id": "74204450-2598-42d7-a8f2-9dce7d995c6f",
+          "id": "b6f7ae14-7f5b-4d4a-a641-1f5ca2d05bde",
           "name": "Delete a product",
           "request": {
             "name": "Delete a product",
@@ -2473,7 +2473,7 @@
           },
           "response": [
             {
-              "id": "201765fb-7e21-4718-a295-fd4654af1a12",
+              "id": "3e2218a0-1296-4b86-b26a-392dcbb2062c",
               "name": "Product deleted successfully",
               "originalRequest": {
                 "url": {
@@ -2513,7 +2513,7 @@
               "_postman_previewlanguage": "text"
             },
             {
-              "id": "987d0497-3641-4ec6-a1ff-5b5b2ba78b35",
+              "id": "95238961-c889-403d-a5de-eff32def916a",
               "name": "Forbidden - Admin only",
               "originalRequest": {
                 "url": {
@@ -2553,7 +2553,7 @@
               "_postman_previewlanguage": "text"
             },
             {
-              "id": "9cc82b45-4477-4e73-81a3-d08aa98a5db0",
+              "id": "86da57be-080f-4827-96e2-153c389dc396",
               "name": "Product not found",
               "originalRequest": {
                 "url": {
@@ -2599,7 +2599,7 @@
           }
         },
         {
-          "id": "ded85873-4403-44f8-b4bb-976b929348b2",
+          "id": "1791b60e-2a80-472e-8e6c-7c055d881c94",
           "name": "Reindex all products in Meilisearch",
           "request": {
             "name": "Reindex all products in Meilisearch",
@@ -2630,7 +2630,7 @@
           },
           "response": [
             {
-              "id": "651a2c33-11a9-4130-a0ed-eb53e7109ead",
+              "id": "faae343f-8bde-4ff3-b741-0a52d3231a0a",
               "name": "Products reindexed successfully",
               "originalRequest": {
                 "url": {
@@ -2662,7 +2662,7 @@
               "_postman_previewlanguage": "text"
             },
             {
-              "id": "8e14698e-e6e7-4cd5-a9b9-565ce80daf26",
+              "id": "1e21d5b9-db65-43d4-9356-c435952d38c5",
               "name": "Forbidden - Admin only",
               "originalRequest": {
                 "url": {
@@ -2703,7 +2703,7 @@
       "event": []
     },
     {
-      "id": "fd071895-705a-41fc-bc26-cc5e4098a8d6",
+      "id": "4d0f19c8-980a-4dc6-a084-1e8b21ff4311",
       "name": "price-lists",
       "description": {
         "content": "Price list management",
@@ -2711,7 +2711,7 @@
       },
       "item": [
         {
-          "id": "17f129b9-ef0e-4dbf-b7cf-4158e80ed9b8",
+          "id": "e02a7f4d-8f8c-47f7-b6c7-c4ac29a67ac5",
           "name": "Price Lists Controller create",
           "request": {
             "name": "Price Lists Controller create",
@@ -2741,7 +2741,7 @@
           },
           "response": [
             {
-              "id": "3369b7a7-b5f1-46c5-8f58-4fabd064790c",
+              "id": "09450901-420e-4499-8226-ace3aac7b471",
               "originalRequest": {
                 "url": {
                   "path": [
@@ -2777,7 +2777,7 @@
           }
         },
         {
-          "id": "0559ba00-7fc2-492d-9161-e679b11fc6bb",
+          "id": "53aba7c6-8c31-46f3-8f55-883d997c8910",
           "name": "Price Lists Controller find All",
           "request": {
             "name": "Price Lists Controller find All",
@@ -2807,7 +2807,7 @@
           },
           "response": [
             {
-              "id": "9a7ecb6f-6b21-4548-a5fe-dbf3fa0a4e90",
+              "id": "33f13ecf-7ebf-4480-a9f3-1e04858ec169",
               "originalRequest": {
                 "url": {
                   "path": [
@@ -2843,7 +2843,7 @@
           }
         },
         {
-          "id": "2615f382-954b-440e-a2aa-17a917173d6e",
+          "id": "f2afafc9-aa76-4ada-9fd3-51f63c2dd5a3",
           "name": "Price Lists Controller find One",
           "request": {
             "name": "Price Lists Controller find One",
@@ -2882,7 +2882,7 @@
           },
           "response": [
             {
-              "id": "ec953d58-bb77-4d2d-80f7-48b395bf3e50",
+              "id": "e0ca9810-d256-45bf-b8ff-d0f1a4cecc71",
               "originalRequest": {
                 "url": {
                   "path": [
@@ -2927,7 +2927,7 @@
           }
         },
         {
-          "id": "1bbea3c3-d287-4802-a62f-f0d216d1b4ec",
+          "id": "01780a71-f882-49bd-9aea-80e1003af881",
           "name": "Price Lists Controller update",
           "request": {
             "name": "Price Lists Controller update",
@@ -2966,7 +2966,7 @@
           },
           "response": [
             {
-              "id": "bac353f8-92a4-463c-903f-770d99008273",
+              "id": "ecd34fde-928c-4fcb-b0af-697a9bce6e84",
               "originalRequest": {
                 "url": {
                   "path": [
@@ -3011,7 +3011,7 @@
           }
         },
         {
-          "id": "d0a2b23c-a846-4f00-886e-d4140065f3d2",
+          "id": "fe66e4c4-d177-4eba-90e7-77dc12138a87",
           "name": "Price Lists Controller remove",
           "request": {
             "name": "Price Lists Controller remove",
@@ -3050,7 +3050,7 @@
           },
           "response": [
             {
-              "id": "a23fb9fa-3ff5-4ab4-b180-27f35d05fcf3",
+              "id": "0e34d5d1-0682-4b45-875c-a245e876aca5",
               "originalRequest": {
                 "url": {
                   "path": [
@@ -3095,7 +3095,7 @@
           }
         },
         {
-          "id": "8a9d9c07-0d62-4316-8804-cab84d617fe9",
+          "id": "ed521efe-2911-4664-b536-2a5b9370f61c",
           "name": "Price Lists Controller add Price",
           "request": {
             "name": "Price Lists Controller add Price",
@@ -3135,7 +3135,7 @@
           },
           "response": [
             {
-              "id": "40e35ca0-4572-4521-8d4b-26b58d1dd25e",
+              "id": "e3438f7d-9ca2-4fa6-aa4e-852c46e97db3",
               "originalRequest": {
                 "url": {
                   "path": [
@@ -3184,7 +3184,7 @@
       "event": []
     },
     {
-      "id": "db125498-7999-4dab-8451-90cf87ae1b99",
+      "id": "061f24ee-92e1-4125-a98b-52d97b4732af",
       "name": "orders",
       "description": {
         "content": "Order management",
@@ -3192,7 +3192,7 @@
       },
       "item": [
         {
-          "id": "267726d8-c535-4cce-98c6-d428de9a2be3",
+          "id": "cfc559f1-8498-4c27-89dd-0aa7c1c09e13",
           "name": "Create a new order (draft)",
           "request": {
             "name": "Create a new order (draft)",
@@ -3237,7 +3237,7 @@
           },
           "response": [
             {
-              "id": "8e825803-4c21-4125-8646-722843dc734d",
+              "id": "32b2689b-e7a5-4300-842d-daa9df2af5bb",
               "name": "Order created successfully",
               "originalRequest": {
                 "url": {
@@ -3276,7 +3276,7 @@
               "_postman_previewlanguage": "text"
             },
             {
-              "id": "1db284bd-413b-481b-a6a4-cec874713221",
+              "id": "e104e37c-ec9f-489c-8140-0f9dd0ff95f1",
               "name": "Bad request",
               "originalRequest": {
                 "url": {
@@ -3315,7 +3315,7 @@
               "_postman_previewlanguage": "text"
             },
             {
-              "id": "50fa2810-18bd-4b5b-9334-1e36045b2eb2",
+              "id": "6c3b17bc-1e55-4cb9-ab70-8039b98f7db9",
               "name": "Unauthorized",
               "originalRequest": {
                 "url": {
@@ -3354,7 +3354,7 @@
               "_postman_previewlanguage": "text"
             },
             {
-              "id": "a19a091f-e954-41bb-9584-50a5b50d50d5",
+              "id": "b37bb8f8-6d90-428e-a305-03cbd83b100e",
               "name": "Factory or variant not found",
               "originalRequest": {
                 "url": {
@@ -3399,7 +3399,7 @@
           }
         },
         {
-          "id": "8b4f88ed-b5be-4f4a-9dcb-447ed580a414",
+          "id": "cc4d6a53-a077-42fe-b85a-d12c253acef1",
           "name": "Get all orders",
           "request": {
             "name": "Get all orders",
@@ -3445,7 +3445,7 @@
           },
           "response": [
             {
-              "id": "a0b1feec-c639-4a8d-b924-b0b770c6f8a8",
+              "id": "54982efb-f873-49db-b9b1-f4c8b3e025a1",
               "name": "Orders retrieved successfully",
               "originalRequest": {
                 "url": {
@@ -3495,7 +3495,7 @@
           }
         },
         {
-          "id": "8a4444e0-3f3d-4785-9730-8f91122620a3",
+          "id": "74fb6695-c921-4a4b-99a9-aed0e52db009",
           "name": "Submit an order",
           "request": {
             "name": "Submit an order",
@@ -3538,7 +3538,7 @@
           },
           "response": [
             {
-              "id": "784489ec-8897-4b68-a883-6daf7908e41f",
+              "id": "2e1c2fd3-f80e-433f-b0a6-a50395ae8907",
               "name": "Order submitted and queued for processing",
               "originalRequest": {
                 "url": {
@@ -3579,7 +3579,7 @@
               "_postman_previewlanguage": "text"
             },
             {
-              "id": "174a2849-e15a-467e-a8cb-06632ca4ca42",
+              "id": "d245b6bc-dae5-46fd-9e65-5f4738ec0deb",
               "name": "Order already submitted or has no items",
               "originalRequest": {
                 "url": {
@@ -3620,7 +3620,7 @@
               "_postman_previewlanguage": "text"
             },
             {
-              "id": "9798bdf7-ac47-4f02-a8bf-fcd9fd20a479",
+              "id": "cc75c0d6-9dba-420b-b4b7-2d60ece7adc1",
               "name": "Order not found",
               "originalRequest": {
                 "url": {
@@ -3667,7 +3667,7 @@
           }
         },
         {
-          "id": "43b7cf92-e649-41eb-a513-b9503dbdfce6",
+          "id": "e645c9f2-b1da-4a85-9e8c-c83948739837",
           "name": "Get an order by ID",
           "request": {
             "name": "Get an order by ID",
@@ -3706,7 +3706,7 @@
           },
           "response": [
             {
-              "id": "13500d08-1cd9-4b61-a81d-32d45d7f2d8d",
+              "id": "15cb6d90-5b73-4244-932b-58cd3dfb3372",
               "name": "Order retrieved successfully",
               "originalRequest": {
                 "url": {
@@ -3746,7 +3746,7 @@
               "_postman_previewlanguage": "text"
             },
             {
-              "id": "d67d9b27-30ad-4e1b-b21c-0fd9acf2fc69",
+              "id": "a3d5f4ce-bae6-4b35-ba70-a35bcaa01283",
               "name": "Order not found",
               "originalRequest": {
                 "url": {
@@ -3792,7 +3792,7 @@
           }
         },
         {
-          "id": "a571e2be-8ab1-4980-b809-f45a4133ea5a",
+          "id": "b323e0e9-ab02-4433-9f93-b36c90159e8e",
           "name": "Get PDF URL for an order",
           "request": {
             "name": "Get PDF URL for an order",
@@ -3832,7 +3832,7 @@
           },
           "response": [
             {
-              "id": "85b7c965-5722-43fa-9c2f-5aa14df76cf7",
+              "id": "eefe9a90-19f3-49e1-9936-ea9f48a2b0f2",
               "name": "PDF URL retrieved successfully",
               "originalRequest": {
                 "url": {
@@ -3873,7 +3873,7 @@
               "_postman_previewlanguage": "text"
             },
             {
-              "id": "8db21b29-cdf8-4c2d-8bfc-9c26118dd852",
+              "id": "7f12c0a2-afbb-437b-a6bc-f98efcacbe71",
               "name": "Order or PDF not found",
               "originalRequest": {
                 "url": {
@@ -3923,7 +3923,7 @@
       "event": []
     },
     {
-      "id": "1f19f75d-5e10-41ec-85e8-49c0d789bd9e",
+      "id": "cb5b775a-d13a-47c4-86d7-ba92f938a94e",
       "name": "search",
       "description": {
         "content": "Product search",
@@ -3931,7 +3931,7 @@
       },
       "item": [
         {
-          "id": "098d0576-20e8-4378-96f2-8e623e2ef507",
+          "id": "0ae81465-d154-402a-9577-29704b3211a5",
           "name": "Search products using Meilisearch",
           "request": {
             "name": "Search products using Meilisearch",
@@ -3999,7 +3999,7 @@
           },
           "response": [
             {
-              "id": "8775da53-c0b5-4211-82a1-dfc6faae08d0",
+              "id": "31643d7c-5c71-424c-a789-b3abd860bb32",
               "name": "Search results",
               "originalRequest": {
                 "url": {
@@ -4065,7 +4065,7 @@
       "event": []
     },
     {
-      "id": "ec4b2dc9-53f3-4b8a-a9c0-c219d9750c0e",
+      "id": "d88dc6bf-64cc-4837-9c9b-5ebb52728b3e",
       "name": "health",
       "description": {
         "content": "System health checks",
@@ -4073,7 +4073,7 @@
       },
       "item": [
         {
-          "id": "8487a97b-3bef-4b8c-b4fc-68b4b79c443b",
+          "id": "5ef9b79d-7083-4637-8820-c485d3a0c2e7",
           "name": "Health check endpoint",
           "request": {
             "name": "Health check endpoint",
@@ -4095,7 +4095,7 @@
           },
           "response": [
             {
-              "id": "c0487273-f2b8-4527-a0d6-e2337f1eef93",
+              "id": "54b770a5-e9fa-458c-87f2-f94e582eaf73",
               "name": "Service is healthy",
               "originalRequest": {
                 "url": {
@@ -4132,7 +4132,7 @@
           }
         },
         {
-          "id": "ae830a78-ce80-4a50-a58b-e45c7840080d",
+          "id": "b7f858fa-0bf2-4f06-82d7-94ad026d9430",
           "name": "System metrics endpoint",
           "request": {
             "name": "System metrics endpoint",
@@ -4154,7 +4154,7 @@
           },
           "response": [
             {
-              "id": "aedfa53e-e6c0-419f-9258-2319d05c5201",
+              "id": "bd9408cb-7a3a-4f0e-b5b2-463926226176",
               "name": "System metrics",
               "originalRequest": {
                 "url": {
@@ -4203,7 +4203,7 @@
     }
   ],
   "info": {
-    "_postman_id": "cf50eae1-f54e-476c-acb4-b29eb9780fe6",
+    "_postman_id": "3b3dfb8f-2dc4-4ed1-a617-4502d2b9a834",
     "name": "Vendora API",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
     "description": {
