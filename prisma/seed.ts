@@ -30,7 +30,7 @@ async function main() {
     data: {
       name: 'Distribuidora La Elegancia',
       code: 'ELEG001',
-      email: 'ventas@laelegancia.com',
+      email: 'ventas@yopmail.com',
       phone: '+52-55-1234-5678',
       address: 'Av. Reforma 123, Ciudad de México, CDMX',
       isActive: true,
@@ -41,7 +41,7 @@ async function main() {
     data: {
       name: 'Mayorista Fashion Point',
       code: 'FASHION001',
-      email: 'pedidos@fashionpoint.com',
+      email: 'pedidos@yopmail.com',
       phone: '+57-1-987-6543',
       address: 'Calle 72 #10-34, Bogotá, Colombia',
       isActive: true,
@@ -52,7 +52,7 @@ async function main() {
     data: {
       name: 'Comercializadora El Buen Gusto',
       code: 'GUSTO001',
-      email: 'compras@elbuengusto.com',
+      email: 'compras@yopmail.com',
       phone: '+56-2-2345-6789',
       address: 'Av. Providencia 456, Santiago, Chile',
       isActive: true,
@@ -63,7 +63,7 @@ async function main() {
     data: {
       name: 'Distribuciones Moderna',
       code: 'MODERNA001',
-      email: 'info@moderna.com.ar',
+      email: 'info@yopmail.com',
       phone: '+54-11-4567-8901',
       address: 'Av. Santa Fe 789, Buenos Aires, Argentina',
       isActive: true,
@@ -77,7 +77,7 @@ async function main() {
     data: {
       name: 'Calzados Artesanales del Sur',
       code: 'FAC-CALZADO-SUR',
-      contactEmail: 'ordenes@calzadosdelsur.com',
+      contactEmail: 'ordenes@yopmail.com',
       contactPhone: '+52-33-8765-4321',
       address: 'Zona Industrial Norte, León, Guanajuato, México',
       isActive: true,
@@ -88,7 +88,7 @@ async function main() {
     data: {
       name: 'Marroquinería Premium',
       code: 'FAC-MARROQUIN',
-      contactEmail: 'pedidos@marroquineriapremium.com',
+      contactEmail: 'pedidos@yopmail.com',
       contactPhone: '+57-4-321-9876',
       address: 'Parque Industrial El Cuero, Medellín, Colombia',
       isActive: true,
@@ -99,7 +99,7 @@ async function main() {
     data: {
       name: 'Accesorios Fashion Ltda',
       code: 'FAC-ACCESORIOS',
-      contactEmail: 'ventas@accesoriosfashion.com',
+      contactEmail: 'ventas@yopmail.com',
       contactPhone: '+51-1-567-8901',
       address: 'Av. Industrial 890, Lima, Perú',
       isActive: true,
@@ -110,7 +110,7 @@ async function main() {
     data: {
       name: 'Bolsos y Carteras Diseño Latino',
       code: 'FAC-BOLSOS-LAT',
-      contactEmail: 'ordenes@diseniolatino.com',
+      contactEmail: 'ordenes@yopmail.com',
       contactPhone: '+593-2-234-5678',
       address: 'Zona Franca Norte, Quito, Ecuador',
       isActive: true,
@@ -123,7 +123,7 @@ async function main() {
   // Usuario administrador
   const adminUser = await prisma.user.create({
     data: {
-      email: 'admin@vendora.com',
+      email: 'adminvendora@yopmail.com',
       password: hashedPassword,
       firstName: 'Brian',
       lastName: 'Ortiz',
@@ -135,7 +135,7 @@ async function main() {
   // Vendedores para cada organización
   const seller1 = await prisma.user.create({
     data: {
-      email: 'maria.gonzalez@laelegancia.com',
+      email: 'maria.gonzalez@yopmail.com',
       password: hashedPassword,
       firstName: 'María',
       lastName: 'González',
@@ -147,7 +147,7 @@ async function main() {
 
   const seller2 = await prisma.user.create({
     data: {
-      email: 'juan.rodriguez@fashionpoint.com',
+      email: 'juan.rodriguez@yopmail.com',
       password: hashedPassword,
       firstName: 'Juan',
       lastName: 'Rodríguez',
@@ -159,7 +159,7 @@ async function main() {
 
   const seller3 = await prisma.user.create({
     data: {
-      email: 'ana.martinez@elbuengusto.com',
+      email: 'ana.martinez@yopmail.com',
       password: hashedPassword,
       firstName: 'Ana',
       lastName: 'Martínez',
@@ -171,7 +171,7 @@ async function main() {
 
   const seller4 = await prisma.user.create({
     data: {
-      email: 'pedro.silva@moderna.com.ar',
+      email: 'pedro.silva@yopmail.com',
       password: hashedPassword,
       firstName: 'Pedro',
       lastName: 'Silva',
@@ -184,7 +184,7 @@ async function main() {
   // Usuarios visualizadores de fábrica
   const factoryViewer1 = await prisma.user.create({
     data: {
-      email: 'produccion@calzadosdelsur.com',
+      email: 'produccion@yopmail.com',
       password: hashedPassword,
       firstName: 'Laura',
       lastName: 'Hernández',
@@ -196,7 +196,7 @@ async function main() {
 
   const factoryViewer2 = await prisma.user.create({
     data: {
-      email: 'supervisor@marroquineriapremium.com',
+      email: 'supervisor@yopmail.com',
       password: hashedPassword,
       firstName: 'Roberto',
       lastName: 'Díaz',
@@ -916,17 +916,17 @@ async function main() {
 
   console.log('\n👤 Usuarios de Prueba (contraseña para todos: "password123"):');
   console.log('\n   🔑 ADMINISTRADOR:');
-  console.log('      - admin@vendora.com (Carlos Administrador)');
+  console.log('      - adminvendora@yopmail.com (Brian Ortiz)');
 
   console.log('\n   💼 VENDEDORES:');
-  console.log('      - maria.gonzalez@laelegancia.com (Distribuidora La Elegancia)');
-  console.log('      - juan.rodriguez@fashionpoint.com (Fashion Point)');
-  console.log('      - ana.martinez@elbuengusto.com (El Buen Gusto)');
-  console.log('      - pedro.silva@moderna.com.ar (Distribuciones Moderna)');
+  console.log('      - maria.gonzalez@yopmail.com (Distribuidora La Elegancia)');
+  console.log('      - juan.rodriguez@yopmail.com (Fashion Point)');
+  console.log('      - ana.martinez@yopmail.com (El Buen Gusto)');
+  console.log('      - pedro.silva@yopmail.com (Distribuciones Moderna)');
 
   console.log('\n   👁️  VISUALIZADORES DE FÁBRICA:');
-  console.log('      - produccion@calzadosdelsur.com (Calzados del Sur)');
-  console.log('      - supervisor@marroquineriapremium.com (Marroquinería Premium)');
+  console.log('      - produccion@yopmail.com (Calzados del Sur)');
+  console.log('      - supervisor@yopmail.com (Marroquinería Premium)');
 
   console.log('\n🏢 Organizaciones (Clientes Mayoristas):');
   console.log('   - Distribuidora La Elegancia (México)');
