@@ -61,7 +61,6 @@ B2B Digital Catalog Platform Backend - Multi-factory wholesale ordering system f
    ```
 
 6. **Access the API**:
-   - API: http://localhost:3000/api/v1
    - Swagger Docs: http://localhost:3000/docs
    - Health Check: http://localhost:3000/api/v1/health
 

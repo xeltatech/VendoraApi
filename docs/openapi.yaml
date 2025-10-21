@@ -1,6 +1,6 @@
 openapi: 3.0.0
 paths:
-  /health:
+  /api/v1/health:
     get:
       operationId: AppController_getHealth
       summary: Health check endpoint
@@ -10,7 +10,7 @@ paths:
           description: Service is healthy
       tags:
         - health
-  /metrics:
+  /api/v1/metrics:
     get:
       operationId: AppController_getMetrics
       summary: System metrics endpoint
@@ -20,7 +20,7 @@ paths:
           description: System metrics
       tags:
         - health
-  /auth/login:
+  /api/v1/auth/login:
     post:
       operationId: AuthController_login
       summary: User login
@@ -42,7 +42,7 @@ paths:
           description: Invalid credentials
       tags:
         - auth
-  /auth/refresh:
+  /api/v1/auth/refresh:
     post:
       operationId: AuthController_refresh
       summary: Refresh access token
@@ -60,7 +60,7 @@ paths:
           description: Invalid refresh token
       tags:
         - auth
-  /auth/logout:
+  /api/v1/auth/logout:
     post:
       operationId: AuthController_logout
       summary: User logout
@@ -72,7 +72,7 @@ paths:
         - auth
       security:
         - JWT-auth: []
-  /auth/me:
+  /api/v1/auth/me:
     get:
       operationId: AuthController_getMe
       summary: Get current user
@@ -84,7 +84,7 @@ paths:
         - auth
       security:
         - JWT-auth: []
-  /users:
+  /api/v1/users:
     post:
       operationId: UsersController_create
       summary: Create a new user
@@ -125,7 +125,7 @@ paths:
         - users
       security:
         - JWT-auth: []
-  /users/{id}:
+  /api/v1/users/{id}:
     get:
       operationId: UsersController_findOne
       summary: Get user by ID
@@ -186,7 +186,7 @@ paths:
         - users
       security:
         - JWT-auth: []
-  /organizations:
+  /api/v1/organizations:
     post:
       operationId: OrganizationsController_create
       parameters: []
@@ -207,7 +207,7 @@ paths:
         - organizations
       security:
         - JWT-auth: []
-  /organizations/{id}:
+  /api/v1/organizations/{id}:
     get:
       operationId: OrganizationsController_findOne
       parameters:
@@ -253,7 +253,7 @@ paths:
         - organizations
       security:
         - JWT-auth: []
-  /factories:
+  /api/v1/factories:
     post:
       operationId: FactoriesController_create
       parameters: []
@@ -274,7 +274,7 @@ paths:
         - factories
       security:
         - JWT-auth: []
-  /factories/{id}:
+  /api/v1/factories/{id}:
     get:
       operationId: FactoriesController_findOne
       parameters:
@@ -320,7 +320,7 @@ paths:
         - factories
       security:
         - JWT-auth: []
-  /products:
+  /api/v1/products:
     post:
       operationId: ProductsController_create
       summary: Create a new product
@@ -368,7 +368,7 @@ paths:
         - products
       security:
         - JWT-auth: []
-  /products/{id}:
+  /api/v1/products/{id}:
     get:
       operationId: ProductsController_findOne
       summary: Get a product by ID
@@ -433,7 +433,7 @@ paths:
         - products
       security:
         - JWT-auth: []
-  /products/reindex:
+  /api/v1/products/reindex:
     post:
       operationId: ProductsController_reindex
       summary: Reindex all products in Meilisearch
@@ -447,7 +447,7 @@ paths:
         - products
       security:
         - JWT-auth: []
-  /price-lists:
+  /api/v1/price-lists:
     post:
       operationId: PriceListsController_create
       parameters: []
@@ -468,7 +468,7 @@ paths:
         - price-lists
       security:
         - JWT-auth: []
-  /price-lists/{id}:
+  /api/v1/price-lists/{id}:
     get:
       operationId: PriceListsController_findOne
       parameters:
@@ -514,7 +514,7 @@ paths:
         - price-lists
       security:
         - JWT-auth: []
-  /price-lists/{id}/prices:
+  /api/v1/price-lists/{id}/prices:
     post:
       operationId: PriceListsController_addPrice
       parameters:
@@ -530,7 +530,7 @@ paths:
         - price-lists
       security:
         - JWT-auth: []
-  /orders:
+  /api/v1/orders:
     post:
       operationId: OrdersController_create
       summary: Create a new order (draft)
@@ -580,7 +580,7 @@ paths:
         - orders
       security:
         - JWT-auth: []
-  /orders/{id}/submit:
+  /api/v1/orders/{id}/submit:
     post:
       operationId: OrdersController_submit
       summary: Submit an order
@@ -604,7 +604,7 @@ paths:
         - orders
       security:
         - JWT-auth: []
-  /orders/{id}:
+  /api/v1/orders/{id}:
     get:
       operationId: OrdersController_findOne
       summary: Get an order by ID
@@ -623,7 +623,7 @@ paths:
         - orders
       security:
         - JWT-auth: []
-  /orders/{id}/pdf:
+  /api/v1/orders/{id}/pdf:
     get:
       operationId: OrdersController_getPdf
       summary: Get PDF URL for an order
@@ -642,7 +642,7 @@ paths:
         - orders
       security:
         - JWT-auth: []
-  /search/products:
+  /api/v1/search/products:
     get:
       operationId: SearchController_searchProducts
       summary: Search products using Meilisearch

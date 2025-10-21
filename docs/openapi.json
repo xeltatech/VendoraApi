@@ -1,7 +1,7 @@
 {
   "openapi": "3.0.0",
   "paths": {
-    "/health": {
+    "/api/v1/health": {
       "get": {
         "operationId": "AppController_getHealth",
         "summary": "Health check endpoint",
@@ -16,7 +16,7 @@
         ]
       }
     },
-    "/metrics": {
+    "/api/v1/metrics": {
       "get": {
         "operationId": "AppController_getMetrics",
         "summary": "System metrics endpoint",
@@ -31,7 +31,7 @@
         ]
       }
     },
-    "/auth/login": {
+    "/api/v1/auth/login": {
       "post": {
         "operationId": "AuthController_login",
         "summary": "User login",
@@ -66,7 +66,7 @@
         ]
       }
     },
-    "/auth/refresh": {
+    "/api/v1/auth/refresh": {
       "post": {
         "operationId": "AuthController_refresh",
         "summary": "Refresh access token",
@@ -94,7 +94,7 @@
         ]
       }
     },
-    "/auth/logout": {
+    "/api/v1/auth/logout": {
       "post": {
         "operationId": "AuthController_logout",
         "summary": "User logout",
@@ -114,7 +114,7 @@
         ]
       }
     },
-    "/auth/me": {
+    "/api/v1/auth/me": {
       "get": {
         "operationId": "AuthController_getMe",
         "summary": "Get current user",
@@ -134,7 +134,7 @@
         ]
       }
     },
-    "/users": {
+    "/api/v1/users": {
       "post": {
         "operationId": "UsersController_create",
         "summary": "Create a new user",
@@ -202,7 +202,7 @@
         ]
       }
     },
-    "/users/{id}": {
+    "/api/v1/users/{id}": {
       "get": {
         "operationId": "UsersController_findOne",
         "summary": "Get user by ID",
@@ -304,7 +304,7 @@
         ]
       }
     },
-    "/organizations": {
+    "/api/v1/organizations": {
       "post": {
         "operationId": "OrganizationsController_create",
         "parameters": [],
@@ -340,7 +340,7 @@
         ]
       }
     },
-    "/organizations/{id}": {
+    "/api/v1/organizations/{id}": {
       "get": {
         "operationId": "OrganizationsController_findOne",
         "parameters": [
@@ -420,7 +420,7 @@
         ]
       }
     },
-    "/factories": {
+    "/api/v1/factories": {
       "post": {
         "operationId": "FactoriesController_create",
         "parameters": [],
@@ -456,7 +456,7 @@
         ]
       }
     },
-    "/factories/{id}": {
+    "/api/v1/factories/{id}": {
       "get": {
         "operationId": "FactoriesController_findOne",
         "parameters": [
@@ -536,7 +536,7 @@
         ]
       }
     },
-    "/products": {
+    "/api/v1/products": {
       "post": {
         "operationId": "ProductsController_create",
         "summary": "Create a new product",
@@ -615,7 +615,7 @@
         ]
       }
     },
-    "/products/{id}": {
+    "/api/v1/products/{id}": {
       "get": {
         "operationId": "ProductsController_findOne",
         "summary": "Get a product by ID",
@@ -723,7 +723,7 @@
         ]
       }
     },
-    "/products/reindex": {
+    "/api/v1/products/reindex": {
       "post": {
         "operationId": "ProductsController_reindex",
         "summary": "Reindex all products in Meilisearch",
@@ -746,7 +746,7 @@
         ]
       }
     },
-    "/price-lists": {
+    "/api/v1/price-lists": {
       "post": {
         "operationId": "PriceListsController_create",
         "parameters": [],
@@ -782,7 +782,7 @@
         ]
       }
     },
-    "/price-lists/{id}": {
+    "/api/v1/price-lists/{id}": {
       "get": {
         "operationId": "PriceListsController_findOne",
         "parameters": [
@@ -862,7 +862,7 @@
         ]
       }
     },
-    "/price-lists/{id}/prices": {
+    "/api/v1/price-lists/{id}/prices": {
       "post": {
         "operationId": "PriceListsController_addPrice",
         "parameters": [
@@ -890,7 +890,7 @@
         ]
       }
     },
-    "/orders": {
+    "/api/v1/orders": {
       "post": {
         "operationId": "OrdersController_create",
         "summary": "Create a new order (draft)",
@@ -972,7 +972,7 @@
         ]
       }
     },
-    "/orders/{id}/submit": {
+    "/api/v1/orders/{id}/submit": {
       "post": {
         "operationId": "OrdersController_submit",
         "summary": "Submit an order",
@@ -1008,7 +1008,7 @@
         ]
       }
     },
-    "/orders/{id}": {
+    "/api/v1/orders/{id}": {
       "get": {
         "operationId": "OrdersController_findOne",
         "summary": "Get an order by ID",
@@ -1040,7 +1040,7 @@
         ]
       }
     },
-    "/orders/{id}/pdf": {
+    "/api/v1/orders/{id}/pdf": {
       "get": {
         "operationId": "OrdersController_getPdf",
         "summary": "Get PDF URL for an order",
@@ -1072,7 +1072,7 @@
         ]
       }
     },
-    "/search/products": {
+    "/api/v1/search/products": {
       "get": {
         "operationId": "SearchController_searchProducts",
         "summary": "Search products using Meilisearch",
