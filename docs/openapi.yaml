@@ -1,0 +1,937 @@
+openapi: 3.0.0
+paths:
+  /health:
+    get:
+      operationId: AppController_getHealth
+      summary: Health check endpoint
+      parameters: []
+      responses:
+        '200':
+          description: Service is healthy
+      tags:
+        - health
+  /metrics:
+    get:
+      operationId: AppController_getMetrics
+      summary: System metrics endpoint
+      parameters: []
+      responses:
+        '200':
+          description: System metrics
+      tags:
+        - health
+  /auth/login:
+    post:
+      operationId: AuthController_login
+      summary: User login
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LoginDto'
+      responses:
+        '200':
+          description: Login successful
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LoginResponseDto'
+        '401':
+          description: Invalid credentials
+      tags:
+        - auth
+  /auth/refresh:
+    post:
+      operationId: AuthController_refresh
+      summary: Refresh access token
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RefreshTokenDto'
+      responses:
+        '200':
+          description: Token refreshed successfully
+        '401':
+          description: Invalid refresh token
+      tags:
+        - auth
+  /auth/logout:
+    post:
+      operationId: AuthController_logout
+      summary: User logout
+      parameters: []
+      responses:
+        '200':
+          description: Logout successful
+      tags:
+        - auth
+      security:
+        - JWT-auth: []
+  /auth/me:
+    get:
+      operationId: AuthController_getMe
+      summary: Get current user
+      parameters: []
+      responses:
+        '200':
+          description: Current user information
+      tags:
+        - auth
+      security:
+        - JWT-auth: []
+  /users:
+    post:
+      operationId: UsersController_create
+      summary: Create a new user
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateUserDto'
+      responses:
+        '201':
+          description: User created
+        '403':
+          description: Forbidden
+      tags:
+        - users
+      security:
+        - JWT-auth: []
+    get:
+      operationId: UsersController_findAll
+      summary: Get all users
+      parameters:
+        - name: skip
+          required: true
+          in: query
+          schema:
+            type: number
+        - name: take
+          required: true
+          in: query
+          schema:
+            type: number
+      responses:
+        '200':
+          description: Users retrieved
+      tags:
+        - users
+      security:
+        - JWT-auth: []
+  /users/{id}:
+    get:
+      operationId: UsersController_findOne
+      summary: Get user by ID
+      parameters:
+        - name: id
+          required: true
+          in: path
+          schema:
+            type: string
+      responses:
+        '200':
+          description: User retrieved
+        '404':
+          description: User not found
+      tags:
+        - users
+      security:
+        - JWT-auth: []
+    patch:
+      operationId: UsersController_update
+      summary: Update user
+      parameters:
+        - name: id
+          required: true
+          in: path
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateUserDto'
+      responses:
+        '200':
+          description: User updated
+        '403':
+          description: Forbidden
+      tags:
+        - users
+      security:
+        - JWT-auth: []
+    delete:
+      operationId: UsersController_remove
+      summary: Delete user
+      parameters:
+        - name: id
+          required: true
+          in: path
+          schema:
+            type: string
+      responses:
+        '200':
+          description: User deleted
+        '403':
+          description: Forbidden
+      tags:
+        - users
+      security:
+        - JWT-auth: []
+  /organizations:
+    post:
+      operationId: OrganizationsController_create
+      parameters: []
+      responses:
+        '201':
+          description: ''
+      tags:
+        - organizations
+      security:
+        - JWT-auth: []
+    get:
+      operationId: OrganizationsController_findAll
+      parameters: []
+      responses:
+        '200':
+          description: ''
+      tags:
+        - organizations
+      security:
+        - JWT-auth: []
+  /organizations/{id}:
+    get:
+      operationId: OrganizationsController_findOne
+      parameters:
+        - name: id
+          required: true
+          in: path
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+      tags:
+        - organizations
+      security:
+        - JWT-auth: []
+    patch:
+      operationId: OrganizationsController_update
+      parameters:
+        - name: id
+          required: true
+          in: path
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+      tags:
+        - organizations
+      security:
+        - JWT-auth: []
+    delete:
+      operationId: OrganizationsController_remove
+      parameters:
+        - name: id
+          required: true
+          in: path
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+      tags:
+        - organizations
+      security:
+        - JWT-auth: []
+  /factories:
+    post:
+      operationId: FactoriesController_create
+      parameters: []
+      responses:
+        '201':
+          description: ''
+      tags:
+        - factories
+      security:
+        - JWT-auth: []
+    get:
+      operationId: FactoriesController_findAll
+      parameters: []
+      responses:
+        '200':
+          description: ''
+      tags:
+        - factories
+      security:
+        - JWT-auth: []
+  /factories/{id}:
+    get:
+      operationId: FactoriesController_findOne
+      parameters:
+        - name: id
+          required: true
+          in: path
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+      tags:
+        - factories
+      security:
+        - JWT-auth: []
+    patch:
+      operationId: FactoriesController_update
+      parameters:
+        - name: id
+          required: true
+          in: path
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+      tags:
+        - factories
+      security:
+        - JWT-auth: []
+    delete:
+      operationId: FactoriesController_remove
+      parameters:
+        - name: id
+          required: true
+          in: path
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+      tags:
+        - factories
+      security:
+        - JWT-auth: []
+  /products:
+    post:
+      operationId: ProductsController_create
+      summary: Create a new product
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateProductDto'
+      responses:
+        '201':
+          description: Product created successfully
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden - Admin only
+      tags:
+        - products
+      security:
+        - JWT-auth: []
+    get:
+      operationId: ProductsController_findAll
+      summary: Get all products
+      parameters:
+        - name: skip
+          required: false
+          in: query
+          schema:
+            type: number
+        - name: take
+          required: false
+          in: query
+          schema:
+            type: number
+        - name: factoryId
+          required: false
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Products retrieved successfully
+      tags:
+        - products
+      security:
+        - JWT-auth: []
+  /products/{id}:
+    get:
+      operationId: ProductsController_findOne
+      summary: Get a product by ID
+      parameters:
+        - name: id
+          required: true
+          in: path
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Product retrieved successfully
+        '404':
+          description: Product not found
+      tags:
+        - products
+      security:
+        - JWT-auth: []
+    patch:
+      operationId: ProductsController_update
+      summary: Update a product
+      parameters:
+        - name: id
+          required: true
+          in: path
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateProductDto'
+      responses:
+        '200':
+          description: Product updated successfully
+        '403':
+          description: Forbidden - Admin only
+        '404':
+          description: Product not found
+      tags:
+        - products
+      security:
+        - JWT-auth: []
+    delete:
+      operationId: ProductsController_remove
+      summary: Delete a product
+      parameters:
+        - name: id
+          required: true
+          in: path
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Product deleted successfully
+        '403':
+          description: Forbidden - Admin only
+        '404':
+          description: Product not found
+      tags:
+        - products
+      security:
+        - JWT-auth: []
+  /products/reindex:
+    post:
+      operationId: ProductsController_reindex
+      summary: Reindex all products in Meilisearch
+      parameters: []
+      responses:
+        '200':
+          description: Products reindexed successfully
+        '403':
+          description: Forbidden - Admin only
+      tags:
+        - products
+      security:
+        - JWT-auth: []
+  /price-lists:
+    post:
+      operationId: PriceListsController_create
+      parameters: []
+      responses:
+        '201':
+          description: ''
+      tags:
+        - price-lists
+      security:
+        - JWT-auth: []
+    get:
+      operationId: PriceListsController_findAll
+      parameters: []
+      responses:
+        '200':
+          description: ''
+      tags:
+        - price-lists
+      security:
+        - JWT-auth: []
+  /price-lists/{id}:
+    get:
+      operationId: PriceListsController_findOne
+      parameters:
+        - name: id
+          required: true
+          in: path
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+      tags:
+        - price-lists
+      security:
+        - JWT-auth: []
+    patch:
+      operationId: PriceListsController_update
+      parameters:
+        - name: id
+          required: true
+          in: path
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+      tags:
+        - price-lists
+      security:
+        - JWT-auth: []
+    delete:
+      operationId: PriceListsController_remove
+      parameters:
+        - name: id
+          required: true
+          in: path
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+      tags:
+        - price-lists
+      security:
+        - JWT-auth: []
+  /price-lists/{id}/prices:
+    post:
+      operationId: PriceListsController_addPrice
+      parameters:
+        - name: id
+          required: true
+          in: path
+          schema:
+            type: string
+      responses:
+        '201':
+          description: ''
+      tags:
+        - price-lists
+      security:
+        - JWT-auth: []
+  /orders:
+    post:
+      operationId: OrdersController_create
+      summary: Create a new order (draft)
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateOrderDto'
+      responses:
+        '201':
+          description: Order created successfully
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+        '404':
+          description: Factory or variant not found
+      tags:
+        - orders
+      security:
+        - JWT-auth: []
+    get:
+      operationId: OrdersController_findAll
+      summary: Get all orders
+      parameters:
+        - name: skip
+          required: false
+          in: query
+          schema:
+            type: number
+        - name: take
+          required: false
+          in: query
+          schema:
+            type: number
+        - name: status
+          required: false
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Orders retrieved successfully
+      tags:
+        - orders
+      security:
+        - JWT-auth: []
+  /orders/{id}/submit:
+    post:
+      operationId: OrdersController_submit
+      summary: Submit an order
+      description: >-
+        Submits an order, generates PDF, and sends email to factory via BullMQ
+        job queue
+      parameters:
+        - name: id
+          required: true
+          in: path
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Order submitted and queued for processing
+        '400':
+          description: Order already submitted or has no items
+        '404':
+          description: Order not found
+      tags:
+        - orders
+      security:
+        - JWT-auth: []
+  /orders/{id}:
+    get:
+      operationId: OrdersController_findOne
+      summary: Get an order by ID
+      parameters:
+        - name: id
+          required: true
+          in: path
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Order retrieved successfully
+        '404':
+          description: Order not found
+      tags:
+        - orders
+      security:
+        - JWT-auth: []
+  /orders/{id}/pdf:
+    get:
+      operationId: OrdersController_getPdf
+      summary: Get PDF URL for an order
+      parameters:
+        - name: id
+          required: true
+          in: path
+          schema:
+            type: string
+      responses:
+        '200':
+          description: PDF URL retrieved successfully
+        '404':
+          description: Order or PDF not found
+      tags:
+        - orders
+      security:
+        - JWT-auth: []
+  /search/products:
+    get:
+      operationId: SearchController_searchProducts
+      summary: Search products using Meilisearch
+      parameters:
+        - name: q
+          required: true
+          in: query
+          description: Search query
+          schema:
+            type: string
+        - name: category
+          required: false
+          in: query
+          description: Filter by category
+          schema:
+            type: string
+        - name: factoryId
+          required: false
+          in: query
+          description: Filter by factory
+          schema:
+            type: string
+        - name: tags
+          required: false
+          in: query
+          description: Filter by tags (comma-separated)
+          schema:
+            type: string
+        - name: limit
+          required: false
+          in: query
+          description: Results limit
+          schema:
+            type: number
+        - name: offset
+          required: false
+          in: query
+          description: Results offset
+          schema:
+            type: number
+      responses:
+        '200':
+          description: Search results
+      tags:
+        - search
+      security:
+        - JWT-auth: []
+info:
+  title: Vendora API
+  description: B2B Digital Catalog Platform - API Documentation
+  version: '1.0'
+  contact: {}
+tags:
+  - name: auth
+    description: Authentication endpoints
+  - name: users
+    description: User management
+  - name: organizations
+    description: Organization management
+  - name: factories
+    description: Factory management
+  - name: products
+    description: Product catalog
+  - name: price-lists
+    description: Price list management
+  - name: orders
+    description: Order management
+  - name: search
+    description: Product search
+  - name: health
+    description: System health checks
+servers: []
+components:
+  securitySchemes:
+    JWT-auth:
+      scheme: bearer
+      bearerFormat: JWT
+      type: http
+      name: JWT
+      description: Enter JWT token
+      in: header
+  schemas:
+    LoginDto:
+      type: object
+      properties:
+        email:
+          type: string
+          example: admin@vendora.com
+          description: User email
+        password:
+          type: string
+          example: password123
+          description: User password
+      required:
+        - email
+        - password
+    LoginResponseDto:
+      type: object
+      properties:
+        accessToken:
+          type: string
+          description: JWT access token
+        refreshToken:
+          type: string
+          description: JWT refresh token
+        user:
+          type: object
+          description: User information
+      required:
+        - accessToken
+        - refreshToken
+        - user
+    RefreshTokenDto:
+      type: object
+      properties:
+        refreshToken:
+          type: string
+          description: JWT refresh token
+      required:
+        - refreshToken
+    CreateUserDto:
+      type: object
+      properties:
+        email:
+          type: string
+          example: user@example.com
+        password:
+          type: string
+          example: password123
+          minLength: 6
+        firstName:
+          type: string
+          example: John
+        lastName:
+          type: string
+          example: Doe
+        role:
+          type: string
+          enum:
+            - ADMIN
+            - SELLER
+            - FACTORY_VIEWER
+          default: SELLER
+        organizationId:
+          type: string
+          description: Organization ID
+        factoryId:
+          type: string
+          description: Factory ID (for factory_viewer role)
+      required:
+        - email
+        - password
+        - firstName
+        - lastName
+        - role
+    UpdateUserDto:
+      type: object
+      properties:
+        email:
+          type: string
+          example: user@example.com
+        firstName:
+          type: string
+          example: John
+        lastName:
+          type: string
+          example: Doe
+        role:
+          type: string
+          enum:
+            - ADMIN
+            - SELLER
+            - FACTORY_VIEWER
+          default: SELLER
+        organizationId:
+          type: string
+          description: Organization ID
+        factoryId:
+          type: string
+          description: Factory ID (for factory_viewer role)
+    CreateProductDto:
+      type: object
+      properties:
+        sku:
+          type: string
+          description: Product SKU
+          example: PROD-001
+        name:
+          type: string
+          description: Product name
+          example: Premium Cotton T-Shirt
+        description:
+          type: string
+          description: Product description
+        category:
+          type: string
+          description: Product category
+          example: Textiles
+        tags:
+          description: Product tags
+          example:
+            - cotton
+            - summer
+          type: array
+          items:
+            type: string
+        imageUrl:
+          type: string
+          description: Product image URL
+        factoryId:
+          type: string
+          description: Factory ID
+        isActive:
+          type: boolean
+          description: Is product active
+          default: true
+      required:
+        - sku
+        - name
+        - factoryId
+    UpdateProductDto:
+      type: object
+      properties:
+        sku:
+          type: string
+          description: Product SKU
+          example: PROD-001
+        name:
+          type: string
+          description: Product name
+          example: Premium Cotton T-Shirt
+        description:
+          type: string
+          description: Product description
+        category:
+          type: string
+          description: Product category
+          example: Textiles
+        tags:
+          description: Product tags
+          example:
+            - cotton
+            - summer
+          type: array
+          items:
+            type: string
+        imageUrl:
+          type: string
+          description: Product image URL
+        factoryId:
+          type: string
+          description: Factory ID
+        isActive:
+          type: boolean
+          description: Is product active
+          default: true
+    OrderItemDto:
+      type: object
+      properties:
+        variantId:
+          type: string
+          description: Product variant ID
+        quantity:
+          type: number
+          description: Quantity
+          example: 10
+        notes:
+          type: string
+          description: Item notes
+      required:
+        - variantId
+        - quantity
+    CreateOrderDto:
+      type: object
+      properties:
+        factoryId:
+          type: string
+          description: Factory ID
+        priceListId:
+          type: string
+          description: Price list ID
+        items:
+          description: Order items
+          type: array
+          items:
+            $ref: '#/components/schemas/OrderItemDto'
+        notes:
+          type: string
+          description: Order notes
+      required:
+        - factoryId
+        - items

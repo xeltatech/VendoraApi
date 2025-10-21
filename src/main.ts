@@ -4,6 +4,8 @@ import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 import { ConfigService } from '@nestjs/config';
 import * as compression from 'compression';
 import helmet from 'helmet';
+import * as fs from 'fs';
+import * as yaml from 'js-yaml';
 import { AppModule } from './app.module';
 import { AllExceptionsFilter } from './common/filters/all-exceptions.filter';
 import { LoggingInterceptor } from './common/interceptors/logging.interceptor';
@@ -74,11 +76,37 @@ async function bootstrap() {
     .build();
 
   const document = SwaggerModule.createDocument(app, config);
-  SwaggerModule.setup('docs', app, document, {
-    swaggerOptions: {
-      persistAuthorization: true,
-    },
-  });
+
+  // Generate OpenAPI files (JSON and YAML)
+  const outputDir = './docs';
+  if (!fs.existsSync(outputDir)) {
+    fs.mkdirSync(outputDir, { recursive: true });
+  }
+
+  // Save OpenAPI as JSON
+  fs.writeFileSync(
+    `${outputDir}/openapi.json`,
+    JSON.stringify(document, null, 2),
+  );
+  logger.log(`OpenAPI JSON generated: ${outputDir}/openapi.json`);
+
+  // Save OpenAPI as YAML
+  const yamlString = yaml.dump(document, { noRefs: true });
+  fs.writeFileSync(`${outputDir}/openapi.yaml`, yamlString);
+  logger.log(`OpenAPI YAML generated: ${outputDir}/openapi.yaml`);
+
+  // Only expose Swagger UI in development
+  const nodeEnv = configService.get<string>('NODE_ENV', 'development');
+  if (nodeEnv !== 'production') {
+    SwaggerModule.setup('docs', app, document, {
+      swaggerOptions: {
+        persistAuthorization: true,
+      },
+    });
+    logger.log(`Swagger UI available at: http://localhost:${port}/docs`);
+  } else {
+    logger.log('Swagger UI disabled in production mode');
+  }
 
   await app.listen(port);
 

@@ -51,3 +51,8 @@ prisma/migrations/*.sql
 
 # Docker
 docker-compose.override.yml
+
+# OpenAPI generated files (commit these files so clients can use them)
+# Uncomment the following lines if you DON'T want to commit OpenAPI files
+# /docs/openapi.json
+# /docs/openapi.yaml

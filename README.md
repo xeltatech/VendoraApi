@@ -63,7 +63,7 @@ B2B Digital Catalog Platform Backend - Multi-factory wholesale ordering system f
 6. **Access the API**:
    - API: http://localhost:3000/api/v1
    - Swagger Docs: http://localhost:3000/docs
-   - Health Check: http://localhost:3000/health
+   - Health Check: http://localhost:3000/api/v1/health
 
 ### Docker Deployment
 
@@ -229,7 +229,28 @@ yarn test:cov          # Run tests with coverage
 
 ## API Documentation
 
-Swagger UI is auto-generated and available at `/docs` when the server is running.
+### Swagger UI (Development Only)
+
+Swagger UI is available at `/docs` **only in development mode** (`NODE_ENV=development`).
+
+In production, Swagger UI is disabled for security reasons.
+
+### OpenAPI Specification
+
+OpenAPI files are auto-generated at startup in the `docs/` folder:
+- `docs/openapi.json` - JSON format
+- `docs/openapi.yaml` - YAML format
+
+**Manual export:**
+```bash
+yarn openapi:export
+```
+
+**Use cases:**
+- Generate mobile clients (iOS/Swift, Android/Kotlin, Flutter/Dart)
+- Import into Postman/Insomnia for API testing
+- Generate documentation with Redoc
+- Contract testing and validation
 
 All endpoints include:
 - OpenAPI decorators
