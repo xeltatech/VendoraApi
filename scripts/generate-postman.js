@@ -51,14 +51,10 @@ Converter.convert(
       process.exit(1);
     }
 
-    let collection = conversionResult.output[0].data;
+    const collection = conversionResult.output[0].data;
 
     // Enhance the collection with custom settings
     enhanceCollection(collection);
-
-    // Replace all instances of {{baseUrl}} with {{base_url}} for consistency with environment
-    let collectionStr = JSON.stringify(collection, null, 2);
-    collectionStr = collectionStr.replace(/\{\{baseUrl\}\}/g, '{{base_url}}');
 
     // Ensure output directory exists
     const outputDir = path.dirname(outputPath);
@@ -67,7 +63,7 @@ Converter.convert(
     }
 
     // Write the collection to file
-    fs.writeFileSync(outputPath, collectionStr);
+    fs.writeFileSync(outputPath, JSON.stringify(collection, null, 2));
 
     console.log('✅ Postman collection generated successfully!');
     console.log(`📁 Output: ${outputPath}\n`);
@@ -98,10 +94,10 @@ function enhanceCollection(collection) {
     ],
   };
 
-  // Add collection-level variables
+  // Add collection-level variables (matches OpenAPI converter default)
   collection.variable = [
     {
-      key: 'base_url',
+      key: 'baseUrl',
       value: 'http://localhost:3000/api/v1',
       type: 'string',
     },
@@ -191,29 +187,14 @@ function enhanceAuthEndpoints(items) {
 }
 
 /**
- * Replace server URLs with environment variable
+ * Replace server URLs with environment variable (if needed)
  */
 function replaceServerUrls(items) {
+  // The OpenAPI converter already handles this,
+  // but this function is kept for any additional URL processing if needed
   items.forEach((item) => {
     if (item.item) {
       replaceServerUrls(item.item);
-    } else if (item.request && item.request.url) {
-      if (typeof item.request.url === 'string') {
-        item.request.url = item.request.url
-          .replace(/http:\/\/localhost:\d+\/api\/v1/g, '{{base_url}}')
-          .replace(/\{\{baseUrl\}\}/g, '{{base_url}}'); // Replace camelCase with snake_case
-      } else if (item.request.url.raw) {
-        item.request.url.raw = item.request.url.raw
-          .replace(/http:\/\/localhost:\d+\/api\/v1/g, '{{base_url}}')
-          .replace(/\{\{baseUrl\}\}/g, '{{base_url}}'); // Replace camelCase with snake_case
-      }
-
-      // Also replace in url.host array if it exists
-      if (item.request.url.host && Array.isArray(item.request.url.host)) {
-        item.request.url.host = item.request.url.host.map(hostPart =>
-          hostPart.replace(/\{\{baseUrl\}\}/g, '{{base_url}}')
-        );
-      }
     }
   });
 }
